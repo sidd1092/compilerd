@@ -14,3 +14,13 @@ jobs:
       - run: flyctl deploy --remote-only
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+          FLY_ORG: ${{ secrets.FLY_ORG }}
+          FLY_APP: ${{ secrets.FLY_APP }}
+
+Enter fullscreen mode Exit fullscreen mode
+
+The workflow file is pretty simple. It listens for pushes to the main branch, checks out the code, sets up the Fly CLI, and then deploys the app to Fly. The secrets are stored in the repository settings and are used to authenticate with the Fly API.
+
+The Fly CLI is a powerful tool that allows you to interact with the Fly platform from the command line. It can be used to deploy apps, manage certificates, and more. The setup-flyctl action is a GitHub Action that installs the Fly CLI and sets up the necessary environment variables.
+
+The deploy command deploys the app to Fly. The --remote-only flag tells Fly to deploy the app without prompting for confirmation. This is useful for automated deployments, as it prevents the deployment from hanging waiting for user input.

@@ -9,3 +9,4 @@ echo 'please be patient, this may take a while...'
 npx lint-staged
 
 echo '🎉 No error found: committing this now.... ✨🚀🏄‍♂️🍻'
+

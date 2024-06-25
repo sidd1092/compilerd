@@ -10,6 +10,8 @@ const respond = (res, code, body = null) => {
      * Logger seems to append data to the payload
      * Stringify to avoid log info getting appended to the response body
      */
+
+    
     _logNon200Codes(code, body ? JSON.parse(JSON.stringify(body)) : null)
 
     return res.status(code).send(body)
